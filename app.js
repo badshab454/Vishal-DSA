@@ -1,15 +1,19 @@
-// 9. Palindrom number leecode
+// 509. Fibonacci Number
+
 /**
- * @param {number} x
- * @return {boolean}
+ * @param {number} n
+ * @return {number}
  */
-var isPalindrome = function (x) {
-  let copyNum = x,
-    reverseNum = 0;
-  while (copyNum > 0) {
-    const lastDigit = copyNum % 10;
-    reverseNum = reverseNum * 10 + lastDigit;
-    copyNum = Math.floor(copyNum / 10);
-  }
-  return x === reverseNum;
+var fib = function(n) {
+    if (n < 2){
+        return n;
+    }
+
+    let prev = 0, curr = 1, next;
+    for (let i=2; i<=n; i++){
+        next = prev + curr;
+        prev = curr;
+        curr = next;
+    }
+    return next;
 };
