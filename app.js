@@ -1,10 +1,15 @@
-function countDigits(num){
-    num = Math.abs(num);
-    let count = 0;
-    do {
-        count++;
-        num = Math.floor(num/10);
-    } while (num > 0);
-    return count;
-}
-console.log(countDigits(121));
+// 9. Palindrom number leecode
+/**
+ * @param {number} x
+ * @return {boolean}
+ */
+var isPalindrome = function (x) {
+  let copyNum = x,
+    reverseNum = 0;
+  while (copyNum > 0) {
+    const lastDigit = copyNum % 10;
+    reverseNum = reverseNum * 10 + lastDigit;
+    copyNum = Math.floor(copyNum / 10);
+  }
+  return x === reverseNum;
+};
